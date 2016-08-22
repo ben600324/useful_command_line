@@ -525,3 +525,5 @@ Clean up Aegir
 
 
 git rebase --onto commit-id^ commit-id
+
+git push origin +master
