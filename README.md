@@ -521,3 +521,7 @@ Clean up Aegir
 4.Delete folder from Putty sudo rm -r "number folder"
 
 5.Delete content from Aegir
+
+
+
+git rebase --onto commit-id^ commit-id
