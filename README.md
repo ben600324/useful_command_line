@@ -523,7 +523,17 @@ Clean up Aegir
 5.Delete content from Aegir
 
 
+# remvoe each commit from repository
 
 git rebase --onto commit-id^ commit-id
 
 git push origin +master
+
+#Acquia drush 
+
+ssh teachfirst.prod@web-8155.prod.hosting.acquia.com
+cd /var/www/html/teachfirst.prod/docroot/sites/community.teachfirst.org.uk
+drush rr
+drush cc all
+drush updb
+
