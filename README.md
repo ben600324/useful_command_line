@@ -537,3 +537,5 @@ drush rr
 drush cc all
 drush updb
 
+Fatal error: Allowed memory size of 536870912 bytes exhausted (tried to allocate 72 bytes) in /mnt/www/html/teachfirstdev/docroot/modules/filter/filter.module on line 1520
+
