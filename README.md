@@ -539,3 +539,22 @@ drush updb
 
 Fatal error: Allowed memory size of 536870912 bytes exhausted (tried to allocate 72 bytes) in /mnt/www/html/teachfirstdev/docroot/modules/filter/filter.module on line 1520
 
+#Git workflow without losing work
+When starting a new ticket make sure you have a clean and up to date site:
+
+is it clean?
+git status
+if not clean it up!
+
+get the latest changes
+git pull
+
+Import and new config from your colleagues
+sudo -H -u aegir bash -c 'drush @$USER.dtp.dev.teachfirst.org.uk cim'
+
+NOW START YOUR WORK!
+
+Once you are happy that your work is ready to deploy you should follow the next steps in order:
+
+Export any configuration changes you have made
+
