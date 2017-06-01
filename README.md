@@ -597,3 +597,13 @@ $ git branch -D [name_of_your_new_branch]
 Delete the branch on github :
 
 $ git push origin :[name_of_your_new_branch]
+
+#copy database from live to stage
+reroute
+stage proxy
+shield
+configure reroute to smoral@teachfirst.org.uk
+(i have a rule in my mail to delete all those emails)
+or your email
+in salesforce change the authorize data
+
