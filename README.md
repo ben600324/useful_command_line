@@ -607,3 +607,8 @@ configure reroute to smoral@teachfirst.org.uk
 or your email
 in salesforce change the authorize data
 
+cp /var/aegir/platforms/jon/drupal8/docroot/sites/jon.dtp.dev.teachfirst.org.uk/services.yml /var/aegir/platforms/sofia/drupal8/docroot/sites/sofia.dtp.dev.teachfirst.org.uk/ 
+sudo su
+----------------
+sudo chown aegir:www-data services.yml 
+
