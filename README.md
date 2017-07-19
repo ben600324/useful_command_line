@@ -612,3 +612,10 @@ sudo su
 ----------------
 sudo chown aegir:www-data services.yml 
 
+
+
+Export:
+sudo -H -u aegir bash -c 'drush @jon.dtp.dev.teachfirst.org.uk cex'
+Import:
+git pull
+sudo -H -u aegir bash -c 'drush @$USER.dtp.dev.teachfirst.org.uk cim'
