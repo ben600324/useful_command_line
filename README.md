@@ -598,13 +598,13 @@ Delete the branch on github :
 
 $ git push origin :[name_of_your_new_branch]
 
-#copy database from live to stage
-reroute
-stage proxy
-shield
+#copy database from live to stage,
+reroute,
+stage proxy,
+shield,
 configure reroute to smoral@teachfirst.org.uk
 (i have a rule in my mail to delete all those emails)
-or your email
+or your email,
 in salesforce change the authorize data
 
 cp /var/aegir/platforms/jon/drupal8/docroot/sites/jon.dtp.dev.teachfirst.org.uk/services.yml /var/aegir/platforms/sofia/drupal8/docroot/sites/sofia.dtp.dev.teachfirst.org.uk/ 
