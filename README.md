@@ -619,3 +619,7 @@ sudo -H -u aegir bash -c 'drush @jon.dtp.dev.teachfirst.org.uk cex'
 Import:
 git pull
 sudo -H -u aegir bash -c 'drush @$USER.dtp.dev.teachfirst.org.uk cim'
+
+
+#add ip address to server
+sudo iptables -I INPUT 10 -s 94.196.236.101 -j ACCEPT
