@@ -622,4 +622,9 @@ sudo -H -u aegir bash -c 'drush @$USER.dtp.dev.teachfirst.org.uk cim'
 
 
 #add ip address to server
+
+#access dev serve via Jon's server
+ssh aegir.dev.aog.io -p 32100
+ssh aegir.dev.teachfirst.org.uk
+
 sudo iptables -I INPUT 10 -s 94.196.236.101 -j ACCEPT
