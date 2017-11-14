@@ -630,3 +630,6 @@ ssh aegir.dev.teachfirst.org.uk
 sudo iptables -I INPUT 10 -s 94.196.236.101 -j ACCEPT
 
 scp homepage_header_image_-_option_3.jpg teachfirstd8.dev@staging-4778.prod.hosting.acquia.com:/mnt/gfs/teachfirstd8.dev/sites/default/files/2017-09
+
+# acquia prod file path:
+/mnt/www/html/teachfirst/docroot/sites/community.teachfirst.org.uk/files/messaging/cache$ 
