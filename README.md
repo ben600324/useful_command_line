@@ -633,3 +633,11 @@ scp homepage_header_image_-_option_3.jpg teachfirstd8.dev@staging-4778.prod.host
 
 # acquia prod file path:
 /mnt/www/html/teachfirst/docroot/sites/community.teachfirst.org.uk/files/messaging/cache$ 
+
+# D8 migrate
+
+sudo -H -u aegir bash -c 'drush @andy.login.dev.teachfirst.org.uk ms'
+sudo -H -u aegir bash -c 'drush @andy.login.dev.teachfirst.org.uk mim salesforce_connect_migration'
+sudo -H -u aegir bash -c 'drush @andy.login.dev.teachfirst.org.uk mim salesforce_connect_migration --update'
+
+sudo -H -u aegir bash -c 'drush @andy.login.dev.teachfirst.org.uk migrate-reset-status salesforce_connect_migration'
