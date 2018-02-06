@@ -641,3 +641,6 @@ sudo -H -u aegir bash -c 'drush @andy.login.dev.teachfirst.org.uk mim salesforce
 sudo -H -u aegir bash -c 'drush @andy.login.dev.teachfirst.org.uk mim salesforce_connect_migration --update'
 
 sudo -H -u aegir bash -c 'drush @andy.login.dev.teachfirst.org.uk migrate-reset-status salesforce_connect_migration'
+
+# ssh to acquia from aegir dev
+sudo -H -u aegir bash -c 'drush @teachfirstd8.prod cim'
