@@ -644,3 +644,6 @@ sudo -H -u aegir bash -c 'drush @andy.login.dev.teachfirst.org.uk migrate-reset-
 
 # ssh to acquia from aegir dev
 sudo -H -u aegir bash -c 'drush @teachfirstd8.prod cim'
+
+# acquia ssh 
+ssh teachfirstd8.dev@teachfirstd8dev.ssh.prod.acquia-sites.com 
