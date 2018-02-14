@@ -647,3 +647,16 @@ sudo -H -u aegir bash -c 'drush @teachfirstd8.prod cim'
 
 # acquia ssh 
 ssh teachfirstd8.dev@teachfirstd8dev.ssh.prod.acquia-sites.com 
+
+
+# fixed dtp site 
+I think Aegir tried to roll back and lost the database, it happens sometimes, once every few months, due to a bug in drush. I can probably fix it faster than explaining the process but next week I will go through it with you so you know for the future. I will basically create a new site from the backup, manually remove the old site and then clone the new site to the current URL. It should take about 5 to 10 mins. 
+
+Delete the backup of test and copy last known good backup of dtp to the same file name. 
+cd /var/aegir/backups 
+cp dtp.dev.teachfirst.org.uk-20180213.170539.tar.gz test.dtp.dev.teachfirst.org.uk-20180214.121733.tar.gz 
+then restore test.dtp 
+ 
+
+
+
