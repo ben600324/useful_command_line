@@ -656,6 +656,16 @@ Delete the backup of test and copy last known good backup of dtp to the same fil
 cd /var/aegir/backups 
 cp dtp.dev.teachfirst.org.uk-20180213.170539.tar.gz test.dtp.dev.teachfirst.org.uk-20180214.121733.tar.gz 
 then restore test.dtp 
+
+# Drush import/export database
+export:
+drush cr
+drush sql-dump > ~/my-sql-dump-file-name.sql
+
+Import:
+
+drush sql-drop
+drush sql-cli < ~/my-sql-dump-file-name.sql
  
 
 
