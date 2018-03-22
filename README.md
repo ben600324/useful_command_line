@@ -659,12 +659,15 @@ then restore test.dtp
 
 # Drush import/export database
 export:
+
 drush cr
+
 drush sql-dump > ~/my-sql-dump-file-name.sql
 
 Import:
 
 drush sql-drop
+
 drush sql-cli < ~/my-sql-dump-file-name.sql
  
 
