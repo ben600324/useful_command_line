@@ -671,5 +671,6 @@ drush sql-drop
 drush sql-cli < ~/my-sql-dump-file-name.sql
  
 
-
+# degrade database
+sudo -H -u aegir bash -c 'drush @connect.dev.teachfirst.org.uk ev "drupal_set_installed_schema_version('system', 8301)"'
 
