@@ -674,3 +674,11 @@ drush sql-cli < ~/my-sql-dump-file-name.sql
 # degrade database
 sudo -H -u aegir bash -c 'drush @connect.dev.teachfirst.org.uk ev "drupal_set_installed_schema_version('system', 8301)"'
 
+# drupal 8 basic http
+// return isset($username) && isset($password);
++
++    if (isset($username) && isset($password)) {
++      return (bool) $this->entityManager->getStorage('user')->loadByProperties(['name' => $username, 'status' => 1]);
++    }
++
++    return FALSE;
