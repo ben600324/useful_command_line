@@ -682,3 +682,50 @@ sudo -H -u aegir bash -c 'drush @connect.dev.teachfirst.org.uk ev "drupal_set_in
 +    }
 +
 +    return FALSE;
+
+Final version - deployment to DEV 
+(crossed out above in case I missed something)
+
+# For Schools Portal
+Copy profile from release branch to Acquia Profiles folder   --
+Copy config/schools/sync to config folder  -- 
+
+# For Connect
+Copy profile from your branch branch to Acquia Profiles folder --
+Copy config/connect/sync to config folder --
+If your site needs any libraries that are not currently in Vendors folder you will need to add these using composer after you have replace composer below.
+composer require drupal/new_module
+
+# For Charity no further steps are needed - unless there are changes to be deployed
+Copy profile from release branch to Acquia Profiles folder --
+Copy config/charity/sync to config folder --
+ 
+# Copy composer.json to Acquia Repo from drupal8/coreWithEntity85  /docroot/composer.json --
+cp ~/platforms/drupal8/docroot/composer.json ~/platforms/acquiad8/teachfirstd8/docroot/
+
+- This is the new composer that you can add your libraries to if needed.
+
+# Remove vendors and composer.lock
+rm -rf ~/platforms/acquiad8/teachfirstd8/docroot/vendors
+rm -rf ~/platforms/acquiad8/teachfirstd8/docroot/composer.lock
+
+# Run composer update
+cd ~/platforms/acquiad8/teachfirstd8/docroot
+composer update --no-dev --with-dependencies
+
+# deploy code to Acquia Dev by pushing changes to master
+
+# Clear caches on each site and run Database Updates 'updb' and Entity update 'entup'
+sudo -H -u aegir bash -c 'drush @teachfirstd8.dev cr
+sudo -H -u aegir bash -c 'drush @teachfirstd8.dev updb'
+sudo -H -u aegir bash -c 'drush @teachfirstd8.dev entup'
+sudo -H -u aegir bash -c 'drush @teachfirstd8.dev cr
+'
+# Import the configuration on each site
+sudo -H -u aegir bash -c 'drush @teachfirstd8.dev cim'
+
+
+# Schools cache clear example
+sudo -H -u aegir bash -c 'drush @teachfirstd8.dev --uri=http://dev.schools.teachfirst.org.uk cr'
+# Charity config import example
+sudo -H -u aegir bash -c 'drush @teachfirstd8.dev cim'
