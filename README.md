@@ -729,3 +729,15 @@ sudo -H -u aegir bash -c 'drush @teachfirstd8.dev cim'
 sudo -H -u aegir bash -c 'drush @teachfirstd8.dev --uri=http://dev.schools.teachfirst.org.uk cr'
 # Charity config import example
 sudo -H -u aegir bash -c 'drush @teachfirstd8.dev cim'
+
+#drupal 8
+INSERT INTO andyconnectdevte.user__field_push_password_to_sf (bundle,deleted,entity_id,revision_id,langcode,delta,field_push_password_to_sf_value)
+SELECT 'user', '0', uid, uid,'en', '0', pass 
+FROM andyconnectdevte.users_field_data where pass != '';
+
+#drupal 7
+
+INSERT INTO teachfirststg.field_data_field_push_password_to_sf (entity_type,bundle,deleted,entity_id,revision_id,language,delta,field_push_password_to_sf_value,field_push_password_to_sf_format)
+SELECT 'user','user', '0', uid, uid,'und', '0', pass, NULL
+FROM teachfirststg.users where pass != '';
+
