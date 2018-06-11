@@ -741,3 +741,7 @@ INSERT INTO teachfirststg.field_data_field_push_password_to_sf (entity_type,bund
 SELECT 'user','user', '0', uid, uid,'und', '0', pass, NULL
 FROM teachfirststg.users where pass != '';
 
+#Git push error: Unable to unlink old (Permission denied)
+
+sudo chmod -R ug+w .;
+
