@@ -745,3 +745,6 @@ FROM teachfirststg.users where pass != '';
 
 sudo chmod -R ug+w .;
 
+# compare pack
+sudo -H -u aegir bash -c 'drush @connect.dev.teachfirst.org.uk ev "drupal_set_installed_schema_version('file', 8000)"'
+
