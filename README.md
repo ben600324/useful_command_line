@@ -748,3 +748,11 @@ sudo chmod -R ug+w .;
 # compare pack
 sudo -H -u aegir bash -c 'drush @connect.dev.teachfirst.org.uk ev "drupal_set_installed_schema_version('file', 8000)"'
 xrxb@.com/1555/2
+
+
+#drupal 7 database update
+
+UPDATE tf_profiles 
+LEFT JOIN users ON users.uid = tf_profiles.uid 
+SET tf_profiles.password_sync = users.pass 
+where users.uid = tf_profiles.uid;
