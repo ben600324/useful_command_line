@@ -756,3 +756,44 @@ UPDATE tf_profiles
 LEFT JOIN users ON users.uid = tf_profiles.uid 
 SET tf_profiles.password_sync = users.pass 
 where users.uid = tf_profiles.uid;
+
+#jenkiins
+sitename=connect
+version=$BUILD_NUMBER
+workspace=$workspace
+
+git clone git@github.com:teachfirst/connect.git  /var/aegir/platforms/projects/$sitename/$version
+sudo rm -rf /var/aegir/platforms/projects/$sitename/$version/docroot/vendor
+cd /var/aegir/platforms/projects/$sitename/$version/docroot
+composer update
+
+sudo chmod -R 775 /var/aegir/platforms/projects/$sitename/$version/docroot/vendor
+
+sudo chown -R aegir:aegir /var/aegir/platforms/projects/$sitename/$version
+sudo chown -R aegir:www-data /var/aegir/platforms/projects/$sitename/$version/docroot/sites
+sudo chown -R aegir:www-data /var/aegir/platforms/projects/$sitename/$version/config
+sudo chmod -R 775 /var/aegir/platforms/projects/$sitename/$version/docroot
+sudo chmod -R 770 /var/aegir/platforms/projects/$sitename/$version/config
+
+sudo su aegir -c "drush --root=/var/aegir/platforms/projects/$sitename/$version/docroot provision-save @platform_${sitename}_$version --context_type='platform'"
+sudo su aegir -c "drush @hostmaster hosting-import \"@platform_${sitename}_$version\""
+sudo su aegir -c "drush @hostmaster hosting-dispatch"
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+#Jenkins two
+
+sitename=drupal8
+version=$BUILD_NUMBER
+workspace=$workspace
+
+git clone git@github.com:teachfirst/drupal8.git  /var/aegir/platforms/projects/$sitename/$version
+sudo chown -R aegir:aegir /var/aegir/platforms/projects/$sitename/$version
+sudo chown -R aegir:www-data /var/aegir/platforms/projects/$sitename/$version/docroot/sites
+sudo chown -R aegir:www-data /var/aegir/platforms/projects/$sitename/$version/config
+sudo chmod -R 775 /var/aegir/platforms/projects/$sitename/$version/docroot
+
+sudo su aegir -c "drush --root=/var/aegir/platforms/projects/$sitename/$version/docroot provision-save @platform_${sitename}_$version --context_type='platform'"
+sudo su aegir -c "drush @hostmaster hosting-import \"@platform_${sitename}_$version\""
+sudo su aegir -c "drush @hostmaster hosting-dispatch"
