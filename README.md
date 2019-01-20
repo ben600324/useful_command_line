@@ -797,3 +797,10 @@ sudo chmod -R 775 /var/aegir/platforms/projects/$sitename/$version/docroot
 sudo su aegir -c "drush --root=/var/aegir/platforms/projects/$sitename/$version/docroot provision-save @platform_${sitename}_$version --context_type='platform'"
 sudo su aegir -c "drush @hostmaster hosting-import \"@platform_${sitename}_$version\""
 sudo su aegir -c "drush @hostmaster hosting-dispatch"
+
+
+# ubuntu docker permission denied
+$ sudo addgroup --system docker
+$ sudo adduser $USER docker
+$ newgrp docker
+$ sudo snap install docker
