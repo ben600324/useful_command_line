@@ -804,3 +804,8 @@ $ sudo addgroup --system docker
 $ sudo adduser $USER docker
 $ newgrp docker
 $ sudo snap install docker
+
+
+# salesforc mapped object issues
+DROP TRIGGER salesforce_mapped_object_der_insert;
+DROP TRIGGER salesforce_mapped_object_der_update; 
