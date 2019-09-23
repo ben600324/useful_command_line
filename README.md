@@ -809,3 +809,18 @@ $ sudo snap install docker
 # salesforc mapped object issues
 DROP TRIGGER salesforce_mapped_object_der_insert;
 DROP TRIGGER salesforce_mapped_object_der_update; 
+
+# Drupal httpclient
+
+$response = \Drupal::httpClient()->post($base_url . '/oauth/token', [
+      'verify' => true,
+      'form_params' => ['grant_type'=> 'password',
+                        'client_id' => 'CLIENT-ID',
+                        'client_secret'=> 'CLIENT-SECRET',
+                        'scope'=>'',
+                        'username'=>'admin',
+                        'password'=>'admin',],
+        'headers' => [
+          'Content-type' => 'application/x-www-form-urlencoded',
+        ],
+    ])->getBody()->getContents();
