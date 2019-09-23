@@ -824,3 +824,9 @@ $response = \Drupal::httpClient()->post($base_url . '/oauth/token', [
           'Content-type' => 'application/x-www-form-urlencoded',
         ],
     ])->getBody()->getContents();
+    
+$handle = curl_init('https://partner.path.com/oauth2/access_token');
+$data = array('grant_type' => 'authorization_code', 'client_id' => 'CLIENT', 'client_secret' => 'SECRET', 'code' => 'CODE');
+curl_setopt($handle, CURLOPT_POST, true);
+curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
+$resp = curl_exec($handle);
