@@ -830,3 +830,7 @@ $data = array('grant_type' => 'authorization_code', 'client_id' => 'CLIENT', 'cl
 curl_setopt($handle, CURLOPT_POST, true);
 curl_setopt($handle, CURLOPT_POSTFIELDS, $data);
 $resp = curl_exec($handle);
+
+
+# Copy acquia file to aegir
+scp teachfirstd8.prod@web-8154.prod.hosting.acquia.com:/var/log/sites/teachfirstd8.prod/logs/web-8154/php-errors.log /home/andy/php-errors.log
