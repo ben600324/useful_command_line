@@ -834,3 +834,11 @@ $resp = curl_exec($handle);
 
 # Copy acquia file to aegir
 scp teachfirstd8.prod@web-8154.prod.hosting.acquia.com:/var/log/sites/teachfirstd8.prod/logs/web-8154/php-errors.log /home/andy/php-errors.log
+
+# Export Live database
+
+sudo -H -u aegir bash -c 'drush @teachfirstd8.dev --uri=url sql-dump > dbname.sql'
+
+sudo -H -u aegir bash -c 'drush @myteachfirst.dev sql-drop'
+
+sudo -H -u aegir bash -c 'drush @myteachfirst.dev sql-cli < dbname.sql'
