@@ -833,12 +833,12 @@ $resp = curl_exec($handle);
 
 
 # Copy acquia file to aegir
-scp ssh-url:/var/log/sites/teachfirstd8.prod/logs/web-8154/php-errors.log /home/andy/php-errors.log
+scp ssh-url:/var/log/sites/name.prod/logs/web-1234/php-errors.log /home/andy/php-errors.log
 
 # Export Live database
 
-sudo -H -u aegir bash -c 'drush @teachfirstd8.dev --uri=url sql-dump > dbname.sql'
+sudo -H -u aegir bash -c 'drush @teachfirst.dev --uri=url sql-dump > dbname.sql'
 
-sudo -H -u aegir bash -c 'drush @myteachfirst.dev sql-drop'
+sudo -H -u aegir bash -c 'drush @teachfirst.dev sql-drop'
 
-sudo -H -u aegir bash -c 'drush @myteachfirst.dev sql-cli < dbname.sql'
+sudo -H -u aegir bash -c 'drush @teachfirst.dev sql-cli < dbname.sql'
