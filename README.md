@@ -842,3 +842,13 @@ sudo -H -u aegir bash -c 'drush @teachfirst.dev --uri=url sql-dump > dbname.sql'
 sudo -H -u aegir bash -c 'drush @teachfirst.dev sql-drop'
 
 sudo -H -u aegir bash -c 'drush @teachfirst.dev sql-cli < dbname.sql'
+
+[15/06/2020 12:07] Jon Moss
+    So example
+rwx
+421 = 7
+r-x
+401 = 5
+--x
+001 = 1
+
